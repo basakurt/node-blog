@@ -25,6 +25,11 @@ schema: true,
         
       },
 
+      comments: {
+        collection :'comment',
+        via: 'post',
+      }
+
   }
 };
 
