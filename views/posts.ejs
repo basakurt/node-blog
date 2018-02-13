@@ -1,13 +1,24 @@
-<h1>Posts</h1>
-
-<% blogPosts.forEach((post)=>{ %>
-
-    <h2><%=post.title %></h2>
-    <i><%=post.author %> written at <%=post.datePosted%></i>
-    <p><%=post.content %></p>
+<div class="container">
     
 
-<% }); %>
+    <%include components/navbar%>
+
+    <% blogPosts.forEach((post)=>{ %>
+        <div class="card bg-light">
+            <div class="card-header"><%=post.title %></div>
+            <div class="card-body">
+            
+            <p class="card-text"><%=post.content %></p>
+            </div>
+
+            <div class="card-footer text-muted">
+                <%=post.author %> written at <%=post.datePosted%>
+            </div>
+        </div>
+        <br />
+    <% }); %>
+</div>
+
 
 
 
