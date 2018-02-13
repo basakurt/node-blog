@@ -1,23 +1,26 @@
-<div class="container">
-    
 
-    <%include components/navbar%>
 
     <% blogPosts.forEach((post)=>{ %>
         <div class="card bg-light">
             <div class="card-header"><%=post.title %></div>
             <div class="card-body">
             
-            <p class="card-text"><%=post.content %></p>
+            <p class="card-text"><%=post.content.substring(0,300)%> 
+                
+                <% if(post.content.length >= 300){ %>
+                     <a href="/post/open/<%=post.id%>">Read more..</a> <% } else { %>
+                        <a href="/post/open/<%=post.id%>">READ..</a>
+                     <% } %> 
             </div>
 
             <div class="card-footer text-muted">
+
+                <a href="/post/delete/<%=post.id%>" class="btn btn-danger float-right" ><i class="fas fa-trash"></i></a>
                 <%=post.author %> written at <%=post.datePosted%>
             </div>
         </div>
         <br />
     <% }); %>
-</div>
 
 
 

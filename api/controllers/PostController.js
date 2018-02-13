@@ -30,6 +30,35 @@ module.exports = {
             return res.view('posts', {blogPosts: postsArray}) ;
         })
     },
+
+    new: (req, res) =>{
+        Post.create(req.allParams()).exec((err)=>{
+            if(err){
+                return res.json(err);
+            }
+            res.redirect('/post/home');
+        })
+    },
+    delete: (req,res)=>{
+        Post.destroy({id:req.params.id}).exec((err) =>{
+            if(err){
+                return res.json(err);
+            }
+            res.redirect('/post/home');
+
+        })
+    },
+
+    open: (req,res)=>{
+        Post.findOne({id:req.params.id}).populate('comments').exec((err,post)=>{
+            if(err){
+                return res.json(err);
+            }
+
+            return res.view('open', {post}) ;
+
+        })
+    }
 	
 };
 

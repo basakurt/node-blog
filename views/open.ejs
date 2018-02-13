@@ -1,0 +1,38 @@
+<a href="/post/home" class="btn btn-warning">Back</a>
+<br>
+<br>
+<div class="card text-white bg-secondary ">
+        <div class="card-header"><%=post.title%></div>
+        <div class="card-body">
+         
+          <p class="card-text"><%=post.content%></p>
+        </div>
+      </div>
+      <br>
+      <% let commentArray=["light","primary","secondary","warning","info","danger","success"]; %>
+
+      <% post.comments.forEach((comment) => { %> 
+        <% let color = commentArray[0]; %>
+        <% commentArray.push(commentArray.shift()); %>
+        <div class="alert alert-dismissible alert-<%= color %>">
+            <%= comment.text %>
+        </div>
+           
+
+     <% }); %>
+
+
+    <div class="row">
+            <div class="col-lg-12">
+                <form action="/comment/new" method="get">
+             <div class="input-group input-group-lg">
+                <input type="hidden" name="postId" value="<%= post.id %>" />
+                <input type="hidden" name="stalkerId" value="1" />
+                <input type="text" name="text" class="form-control input-lg" placeholder="Comment here..." />
+                <span class="input-group-btn">
+                 <button class="btn btn-<%= commentArray[0]%> btn-lg" type="submit" <% if (commentArray[0] == 'light') { %> style="color:black"> <% } else { %> > <% } %> Send</button>
+                </form>
+               </span>
+             </div>
+           </div>
+         </div>
