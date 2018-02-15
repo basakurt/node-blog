@@ -6,6 +6,14 @@
  */
 
 module.exports = {
-	
+    new: (req, res) =>{
+        User.create(req.allParams()).exec((err)=>{
+            if(err){
+                return res.json(err);
+            }
+            return res.redirect('/');
+        })
+    },
+
 };
 

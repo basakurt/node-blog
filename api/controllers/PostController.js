@@ -36,7 +36,7 @@ module.exports = {
             if(err){
                 return res.json(err);
             }
-            res.redirect('/post/home');
+            return res.redirect('/');
         })
     },
     delete: (req,res)=>{
@@ -44,7 +44,7 @@ module.exports = {
             if(err){
                 return res.json(err);
             }
-            res.redirect('/post/home');
+            return res.redirect('/');
 
         })
     },
@@ -58,7 +58,17 @@ module.exports = {
             return res.view('open', {post}) ;
 
         })
-    }
+    },
+
+    clear: (req,res)=>{
+        Post.destroy({}).exec((err) =>{
+            if(err){
+                return res.json(err);
+            }
+            return res.json('done');
+        })
+    },
+
 	
 };
 
