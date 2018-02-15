@@ -26,7 +26,8 @@
     "sails-mongo": "^0.12.3"
   },
   "engines": {
-    "node":"8.9.4"
+    "node":"8.9.4",
+    "yarn":"1.3.2"
   },
   "scripts": {
     "debug": "node debug app.js",
