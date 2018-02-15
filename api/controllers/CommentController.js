@@ -16,7 +16,7 @@ module.exports = {
                 return res.json(err) ;
             }
             return res.redirect(`/post/open/${req.query.postId}`);
-        }) 
+        })
     }
 };
 

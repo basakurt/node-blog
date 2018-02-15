@@ -7,6 +7,7 @@
 
 module.exports = {
 
+  connection :'mongo',
   schema: 'true',
 
   attributes: {

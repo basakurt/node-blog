@@ -13,7 +13,7 @@
 
       <% post.comments.forEach((comment) => { %> 
         <% let color = commentArray[0]; %>
-        <% commentArray.push(commentArray.shift()); %>
+        <% commentArray.pus4h(commentArray.shift()); %>
         <div class="alert alert-dismissible alert-<%= color %>">
             <%= comment.text %>
         </div>
